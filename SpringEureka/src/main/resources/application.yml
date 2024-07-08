@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: SPRING-EUREKA
+  config:
+    import: "optional:configserver:http://localhost:9090"
+
+server:
+  port: 8761
+
+
