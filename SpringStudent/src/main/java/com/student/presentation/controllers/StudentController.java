@@ -1,6 +1,6 @@
 package com.student.presentation.controllers;
 
-import com.student.domain.services.StudentService;
+import com.student.domain.services.implementation.StudentServiceImpl;
 import com.student.presentation.dtos.StudentRequest;
 import com.student.presentation.dtos.StudentResponse;
 import jakarta.validation.Valid;
@@ -16,7 +16,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class StudentController {
 
-    private final StudentService studentService;
+    private final StudentServiceImpl studentService;
 
     @GetMapping("/findAll")
     public ResponseEntity<List<StudentResponse>> findAllStudent(){
