@@ -1,8 +1,9 @@
-package com.student.domain.services;
+package com.student.domain.services.implementation;
 
 import com.student.domain.exceptions.StudentNotFoundException;
+import com.student.domain.services.interfaces.IStudentService;
 import com.student.persistence.entities.StudentEntity;
-import com.student.persistence.repositories.StudentRepository;
+import com.student.persistence.repositories.IStudentRepository;
 import com.student.presentation.dtos.StudentRequest;
 import com.student.presentation.dtos.StudentResponse;
 import com.student.util.mapper.StudentMapper;
@@ -13,9 +14,9 @@ import java.util.List;
 
 @Service
 @RequiredArgsConstructor
-public class StudentService {
+public class StudentServiceImpl implements IStudentService {
 
-    private final StudentRepository studentRepository;
+    private final IStudentRepository studentRepository;
     private final StudentMapper studentMapper;
 
     public List<StudentResponse> findAllStudent() {
