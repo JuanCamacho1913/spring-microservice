@@ -48,7 +48,7 @@ public class CourseServiceImpl implements ICourseService {
     public CourseResponse updateCourse(CourseRequest courseRequest, Integer id) {
         CourseEntity course = this.courseRepository.findById(id)
                                   .orElseThrow(
-                                          () -> new CourseNotFoundException(String.format("The course with id %s does not exist", id)));
+                                              () -> new CourseNotFoundException(String.format("The course with id %s does not exist", id)));
 
         CourseEntity courseForUpdate = this.courseMapper.getUpdateCourse(courseRequest, course);
         CourseEntity courseUpdate = this.courseRepository.save(courseForUpdate);
