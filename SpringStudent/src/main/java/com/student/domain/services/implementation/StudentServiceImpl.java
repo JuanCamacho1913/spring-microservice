@@ -26,7 +26,7 @@ public class StudentServiceImpl implements IStudentService {
 
     public StudentResponse findById(Integer id) {
         StudentEntity student = this.studentRepository.findById(id)
-                .orElseThrow(() -> new StudentNotFoundException(String.format("Student with %s does not exist", id)));
+                .orElseThrow(() -> new StudentNotFoundException(String.format("Student with id %s does not exist", id)));
         return this.studentMapper.getStudentResponse(student);
     }
 
@@ -43,7 +43,7 @@ public class StudentServiceImpl implements IStudentService {
 
     public StudentResponse updateStudent(StudentRequest studentRequest, Integer id) {
         StudentEntity student = this.studentRepository.findById(id)
-                                    .orElseThrow(() -> new StudentNotFoundException(String.format("Student with %s does not exist", id)));
+                                    .orElseThrow(() -> new StudentNotFoundException(String.format("Student with id %s does not exist", id)));
 
         StudentEntity studentForUpdate = this.studentMapper.getUpdateStudent(studentRequest,student);
         StudentEntity studentUpdate = this.studentRepository.save(studentForUpdate);
