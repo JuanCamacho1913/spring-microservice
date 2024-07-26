@@ -6,4 +6,20 @@ spring:
     name: SPRING-GATEWAY
   config:
     import: "optional:configserver:http://localhost:9090"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: course
+          uri: lb://SPRING-COURSE
+          predicates:
+            - Path=/v1/course/**
+
+        - id: student
+          uri: lb://SPRING-STUDENT
+          predicates:
+            - Path=/v1/student/**
+
 
